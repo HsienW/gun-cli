@@ -2,7 +2,8 @@
 
 const program = require('commander');
 const chalk = require('chalk');
-const create = require('../lib/create');
+const figlet = require('figlet');
+const {create} = require('../lib/create');
 
 program
     // 定義命令和參數
@@ -42,6 +43,15 @@ program
 program
     // 监听 --help 执行
     .on('--help', () => {
+
+        console.log('\r\n' + figlet.textSync('Gun CLI', {
+            font: 'ANSI Regular',
+            horizontalLayout: 'default',
+            verticalLayout: 'default',
+            width: 60,
+            whitespaceBreak: true
+        }));
+
         // 新增说明信息
         console.log(`\r\nRun ${chalk.cyan(`gun <command> --help`)} for detailed usage of given command\r\n`);
     })
